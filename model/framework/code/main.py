@@ -1,39 +1,68 @@
 # imports
 import os
-import csv
 import sys
-from rdkit import Chem
-from rdkit.Chem.Descriptors import MolWt
+import numpy as np
+import numpy.typing as npt
+import json
+import csv
+from typing import List
+
+
+from signaturizer3d import CCSpace, Signaturizer
+
+root = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(root)
+
+
+# current file directory
+checkpoints_dir = os.path.join(root, "..", "..", "checkpoints")
 
 # parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
-# current file directory
-root = os.path.dirname(os.path.abspath(__file__))
+DATASETS = [i+j for i in "A" for j in "12345"]
 
-# my model
-def my_model(smiles_list):
-    return [MolWt(Chem.MolFromSmiles(smi)) for smi in smiles_list]
+def get_model_path(ds):
+    return os.path.join(checkpoints_dir, "{}_split3.pt".format(ds))
 
 
-# read SMILES from .csv file, assuming one column with header
+def predict(smiles_list):
+
+    # For each space, get 3 signatures
+    results = {}
+    for ds in DATASETS:
+        path = get_model_path(ds)
+        signaturizer = Signaturizer(space=ds, local_weights_path= path)
+        signatures = signaturizer.infer_from_smiles(smiles_list)
+        results[ds]=signatures
+
+    # For each space, store the 3 signatures
+    output = [[], [], []]
+    for ds in DATASETS:
+        output[0].extend(results[ds][0])
+        output[1].extend(results[ds][1])
+        output[2].extend(results[ds][2])
+
+    # to numpy array
+    output = np.array(output)
+    return output
+
 with open(input_file, "r") as f:
+    smiles = []
     reader = csv.reader(f)
-    next(reader)  # skip header
-    smiles_list = [r[0] for r in reader]
+    next(reader)
+    for r in reader:
+        smiles += [r[0]]
 
-# run model
-outputs = my_model(smiles_list)
+output = predict(smiles)
 
-#check input and output have the same lenght
-input_len = len(smiles_list)
-output_len = len(outputs)
-assert input_len == output_len
+header = [f"{ds.lower()}_{r:03d}" for ds in DATASETS for r in range(128)]
+
 
 # write output in a .csv file
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(["value"])  # header
-    for o in outputs:
-        writer.writerow([o])
+    writer.writerow(header)  # header
+    for o in output:
+        writer.writerow(o)

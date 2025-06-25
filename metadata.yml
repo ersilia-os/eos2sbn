@@ -24,7 +24,6 @@ Output:
 - Compound
 - Probability
 - Experimental value
-- '...'
 Output Dimension: 1
 Output Consistency: Fixed, Variable
 Interpretation: 'The output of this template model should be interpreted like this.
@@ -41,7 +40,7 @@ Target Organism:
 - Target Organism 1
 - Target Organism 2
 Publication Type: Peer reviewed, Preprint, Other
-Publication Year: 2025
+Publication Year: 2024
 Publication: https://jcheminf.biomedcentral.com/articles/10.1186/s13321-024-00867-4
 Source Code: https://gitlabsbnb.irbbarcelona.org/packages/signaturizer3d
 License: GPL-3.0-or-later
