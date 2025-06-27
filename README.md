@@ -2,6 +2,7 @@
 
 Building on the Chemical Checker bioactivity signatures (available as eos4u6p), the authors use the relation between stereoisomers and bioactivity of over 1M compounds to train stereochemically-aware signaturizers that better describe small molecule bioactivity properties. This model corresponds to the Chemical Checker spaces A1, A2, A3, A4 and A5.
 
+This model was incorporated on 2025-06-25.
 
 ## Information
 ### Identifiers
@@ -42,6 +43,7 @@ _10 of 640 columns are shown_
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip)
 
 ### Resource Consumption
 
