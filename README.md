@@ -44,7 +44,7 @@ _10 of 640 columns are shown_
 - **Source:** `Local`
 - **Source Type:** `External`
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos2sbn](https://hub.docker.com/r/ersiliaos/eos2sbn)
-- **Docker Architecture:** `AMD64`
+- **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip)
 
 ### Resource Consumption
@@ -53,8 +53,8 @@ _10 of 640 columns are shown_
 - **Image Size (Mb):** `9375.15`
 
 **Computational Performance (seconds):**
-- 10 inputs: `44.23`
-- 100 inputs: `266.49`
+- 10 inputs: `39.33`
+- 100 inputs: `98.11`
 - 10000 inputs: `-1`
 
 ### References
