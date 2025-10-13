@@ -36,6 +36,8 @@ Publication:
 Source Code: https://gitlabsbnb.irbbarcelona.org/packages/signaturizer3d
 License: GPL-3.0-or-later
 Incorporation Date: '2025-06-25'
+Last Packaging Date: '2025-10-13'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos2sbn
 Docker Architecture:
@@ -43,9 +45,9 @@ Docker Architecture:
   - ARM64
 Model Size: 2728.0
 Environment Size: 1315.0
-Image Size: 9375.15
-Computational Performance 1: 39.33
-Computational Performance 2: 29.61
-Computational Performance 3: 98.11
-Computational Performance 4: 829.05
+Image Size: 9460.59
+Computational Performance 1: 32.34
+Computational Performance 2: 30.99
+Computational Performance 3: 103.51
+Computational Performance 4: 843.28
 Computational Performance 5: -1.0
