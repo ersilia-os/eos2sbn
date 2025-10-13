@@ -4,6 +4,7 @@ Building on the Chemical Checker bioactivity signatures (available as eos4u6p), 
 
 This model was incorporated on 2025-06-25.
 
+
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos2sbn`
@@ -13,7 +14,7 @@ This model was incorporated on 2025-06-25.
 - **Task:** `Representation`
 - **Subtask:** `Featurization`
 - **Biomedical Area:** `Any`
-- **Target Organism:** `Not Applicable`
+- **Target Organism:** `Any`
 - **Tags:** `Descriptor`, `Bioactivity profile`, `Embedding`
 
 ### Input
