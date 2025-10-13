@@ -29,7 +29,7 @@ def get_model_path(ds):
 
 def predict(smiles_list):
 
-    # For each space, get 3 signatures
+    # For each space, get N signatures (one per molecule)
     results = {}
     for ds in DATASETS:
         path = get_model_path(ds)
@@ -37,12 +37,11 @@ def predict(smiles_list):
         signatures = signaturizer.infer_from_smiles(smiles_list)
         results[ds]=signatures
 
-    # For each space, store the 3 signatures
-    output = [[], [], []]
+    # For each space, store the N signatures (one per molecule)
+    output = [[] for _ in range(len(smiles_list))]
     for ds in DATASETS:
-        output[0].extend(results[ds][0])
-        output[1].extend(results[ds][1])
-        output[2].extend(results[ds][2])
+        for r in range(len(smiles_list)):
+            output[r].extend(results[ds][r])
 
     # to numpy array
     output = np.array(output)
