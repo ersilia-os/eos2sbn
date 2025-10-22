@@ -6,6 +6,8 @@ import numpy.typing as npt
 import json
 import csv
 from typing import List
+from ersilia_pack_utils.core import write_out, read_smiles
+
 
 
 from signaturizer3d import CCSpace, Signaturizer
@@ -47,21 +49,10 @@ def predict(smiles_list):
     output = np.array(output)
     return output
 
-with open(input_file, "r") as f:
-    smiles = []
-    reader = csv.reader(f)
-    next(reader)
-    for r in reader:
-        smiles += [r[0]]
+cols,smiles= read_smiles(input_file)
 
 output = predict(smiles)
 
 header = [f"{ds.lower()}_{r:03d}" for ds in DATASETS for r in range(128)]
 
-
-# write output in a .csv file
-with open(output_file, "w") as f:
-    writer = csv.writer(f)
-    writer.writerow(header)  # header
-    for o in output:
-        writer.writerow(o)
+write_out(output,header,output_file,'float32')
