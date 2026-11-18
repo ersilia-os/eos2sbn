@@ -2,7 +2,8 @@
 
 Produces bioactivity descriptors for the chemistry level of the Chemical Checker, whose five A spaces cover 2D fingerprints, 3D fingerprints, scaffolds, structural keys and physicochemical properties. Comajuncosa-Creus and colleagues examined more than a million compounds and found that around 40% of spatial isomer pairs differ in bioactivity, so rather than flat ECFP4 fingerprints they fine-tuned the pre-trained Uni-Mol model on one optimised conformer per molecule. Each space contributes 128 inferred dimensions, estimating where a compound would sit had it been assayed.
 
-This model was incorporated on 2025-06-25.Last packaged on 2025-12-24.
+This model was incorporated on 2025-06-25.
+Last packaged on 2025-12-24.
 
 ## Information
 ### Identifiers
@@ -46,6 +47,7 @@ _10 of 640 columns are shown_
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos2sbn](https://hub.docker.com/r/ersiliaos/eos2sbn)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2sbn.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos2sbn_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos2sbn_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `2728`
